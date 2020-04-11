@@ -25,10 +25,6 @@ public class LabelRestController {
 
     @GetMapping("/{labelId}")
     public ResponseEntity<?> findOne(@PathVariable("labelId") Long id) {
-//        Label mLabel = labelService.findOne(id);
-//        if (mLabel == null) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
         Optional<Label> optionalLabel = Optional.ofNullable(labelService.findOne(id));
         if (optionalLabel.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

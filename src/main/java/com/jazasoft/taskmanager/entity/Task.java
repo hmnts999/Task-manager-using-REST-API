@@ -26,6 +26,7 @@ public class Task {
     @Pattern(regexp = "critical|medium|low|high")
     private String priority;
 
+
     @ManyToOne
     private Label label;
 

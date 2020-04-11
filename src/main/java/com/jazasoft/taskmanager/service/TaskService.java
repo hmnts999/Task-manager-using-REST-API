@@ -46,8 +46,9 @@ public class TaskService {
         Task mTask = taskRepository.findById(task.getId()).orElse(null);
         assert mTask != null;
         mTask.setName(task.getName());
+        mTask.setPriority(task.getPriority());
         if (!mTask.getLabel().getId().equals(task.getLabelId())) {
-            Label label = labelRepository.getOne(task.getLabelId());
+           Label label = labelRepository.getOne(task.getLabelId());
             mTask.setLabel(label);
         }
         return mTask;
